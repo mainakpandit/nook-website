@@ -54,7 +54,7 @@ export default function OpenGraphImage() {
               color: "#6E7C68",
             }}
           >
-            Coming soon
+            Why this exists
           </span>
           <span
             style={{
