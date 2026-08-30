@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-instrument);
+  --color-paper: #f7f7f5;
+  --color-paper-deep: #efece6;
+  --color-ink: #37352f;
+  --color-ink-soft: #5c5850;
+  --color-muted: #7a746b;
+  --color-rule: color-mix(in srgb, var(--color-ink) 11%, transparent);
+  --color-moss: #6e7c68;
+  --color-glow: color-mix(in srgb, #d8c4a0 55%, transparent);
+}
+
+html {
+  background: var(--color-paper);
+  color-scheme: light;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-moss) 22%, transparent);
+  color: var(--color-ink);
+}
+
+.atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.atmosphere-wash {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(
+      70% 55% at 50% 8%,
+      var(--color-glow) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      50% 40% at 88% 92%,
+      color-mix(in srgb, var(--color-moss) 10%, transparent) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      42% 36% at 8% 78%,
+      color-mix(in srgb, var(--color-paper-deep) 80%, transparent) 0%,
+      transparent 70%
+    );
+}
+
+.atmosphere-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--color-rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-rule) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 50% 28%, black 0%, transparent 72%);
+  opacity: 0.35;
+}
+
+.atmosphere-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.frame-mark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: color-mix(in srgb, var(--color-ink) 28%, transparent);
+}
+
+.frame-mark-tl {
+  top: 1.25rem;
+  left: 1.25rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.frame-mark-tr {
+  top: 1.25rem;
+  right: 1.25rem;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.frame-mark-bl {
+  bottom: 1.25rem;
+  left: 1.25rem;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.frame-mark-br {
+  bottom: 1.25rem;
+  right: 1.25rem;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+@media (min-width: 768px) {
+  .frame-mark-tl,
+  .frame-mark-tr {
+    top: 1.75rem;
+  }
+
+  .frame-mark-bl,
+  .frame-mark-br {
+    bottom: 1.75rem;
+  }
+
+  .frame-mark-tl,
+  .frame-mark-bl {
+    left: 1.75rem;
+  }
+
+  .frame-mark-tr,
+  .frame-mark-br {
+    right: 1.75rem;
+  }
+}
