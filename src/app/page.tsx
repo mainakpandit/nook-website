@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-
-export const metadata: Metadata = {
-  title: "Coming soon",
-  description: "You already saved it. You just cannot put your hands on it.",
-};
 
 function Cite({ href, children }: { href: string; children: React.ReactNode }) {
   return (

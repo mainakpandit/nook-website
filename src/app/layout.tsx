@@ -1,46 +1,148 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import {
+  ogCard,
+  ogImage,
+  pageDescription,
+  pageTitle,
+  shareDescription,
+  siteName,
+  siteUrl,
+} from "@/lib/site";
 import "./globals.css";
 
-const description =
-  "You already saved it. You just cannot put your hands on it.";
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getnook.tech"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Coming soon",
-    template: "%s",
+    default: pageTitle,
+    template: `%s · ${siteName}`,
   },
-  description,
+  description: pageDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  keywords: [
+    "Nook",
+    "personal knowledge",
+    "re-finding",
+    "bookmarks",
+    "second brain",
+    "knowledge workers",
+    "save for later",
+  ],
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   openGraph: {
-    title: "You already have it. Somewhere.",
-    description:
-      "A paper. A thread. A sentence in a lecture. Then the little comedy of looking. Coming soon.",
     type: "website",
+    locale: "en_US",
     url: "/",
-    siteName: "getnook.tech",
+    siteName,
+    title: pageTitle,
+    description: shareDescription,
+    images: [
+      {
+        url: ogCard.url,
+        width: ogCard.width,
+        height: ogCard.height,
+        alt: ogCard.alt,
+        type: ogCard.type,
+      },
+      {
+        url: ogImage.url,
+        width: ogImage.width,
+        height: ogImage.height,
+        alt: ogImage.alt,
+        type: ogImage.type,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "You already have it. Somewhere.",
-    description:
-      "A paper. A thread. A sentence in a lecture. Then the little comedy of looking.",
+    title: pageTitle,
+    description: shareDescription,
+    images: [
+      {
+        url: ogCard.url,
+        width: ogCard.width,
+        height: ogCard.height,
+        alt: ogCard.alt,
+      },
+    ],
   },
+  appleWebApp: {
+    title: siteName,
+    capable: true,
+    statusBarStyle: "black",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: siteName,
+      description: pageDescription,
+      inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: siteUrl,
+      name: pageTitle,
+      description: pageDescription,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${siteUrl}${ogImage.url}`,
+        width: ogImage.width,
+        height: ogImage.height,
+      },
+      inLanguage: "en",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/icon.svg`,
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body className="antialiased">
-        <span
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `<!--
-THESIS: One public page in a black studio one-pager — icon mark, Helvetica column, one photograph, cited essay, coming-soon close — not a waitlist, not a feature grid, not paper-and-serif.
-OWN-WORLD: True black, white Helvetica Neue, icon-only mark, rounded photographic plate, --- rules, block cursor. No grain, no atmosphere, no wordmark.
-STORY: You already have it somewhere. Funny, first-person hunts for saved papers and charts. Product loop held until late. Researcher names only in Sources. Coming soon.
-FIRST VIEWPORT: Icon top-left of a ~38rem column. Large Helvetica headline. Small loop line. Grassland figure photograph with rounded corners at column width. Essay follows on scroll.
-FORM: User-pinned reconstruction of the attached tinycomputer.co one-pager. Helvetica. Icon instead of studio name. Essay body kept. Code-led. No direction seed.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
--->`,
+            __html: JSON.stringify(jsonLd),
           }}
         />
         {children}
