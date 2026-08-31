@@ -13,5 +13,5 @@ related_targets: ["src/components/site-header.tsx","src/components/site-footer.t
 - Proof: McKinsey 2012, APQC, Leroy 2009, Capra/Teevan PIM. Hero plate is a grassland figure, generated, not a product screenshot.
 - Constraints: SSR only, no `"use client"`, Helvetica, icon-only mark (no wordmark), no waitlist, no product ROI number.
 - Direction: User-pinned reconstruction of the attached tinycomputer.co one-pager on true black. Code-led.
-- Memorable moment: the grassland figure under a two-line Helvetica headline, then the cited essay.
+- Memorable moment: grassland figure under “You already have it. Somewhere,” then an essay of re-finding tales that withholds the product until late.
 - Unresolved: real notify/follow channel when one exists.

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-export const alt = "For people who consume more than they remember.";
+export const alt = "You already have it. Somewhere.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,7 +42,7 @@ export default function OpenGraphImage() {
               fontWeight: 500,
             }}
           >
-            For people who consume more than they remember.
+            You already have it. Somewhere.
           </div>
           <div style={{ fontSize: 22, color: "#B3B3B3" }}>Coming soon.</div>
         </div>

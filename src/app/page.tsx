@@ -5,8 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Coming soon",
-  description:
-    "You already save too much and cannot find it again. Capture once, ask later, get answers with sources.",
+  description: "You already saved it. You just cannot put your hands on it.",
 };
 
 function Cite({ href, children }: { href: string; children: React.ReactNode }) {
@@ -47,10 +46,11 @@ export default function Home() {
 
         <main>
           <h1 className="mt-[5.5rem] text-[2.4rem] font-semibold leading-[1.08] tracking-[-0.03em] text-paper sm:mt-28 sm:text-[2.75rem]">
-            For people who consume more than they remember.
+            You already have it. Somewhere.
           </h1>
           <p className="mt-5 text-[13px] leading-6 text-paper-soft">
-            Capture anywhere. Ask later. Answers come back with sources.
+            A paper. A thread. A sentence in a lecture. Then the little comedy
+            of looking.
           </p>
 
           <figure className="mt-[4.5rem] sm:mt-20">
@@ -64,97 +64,77 @@ export default function Home() {
             />
           </figure>
 
-          <div className="mt-16 space-y-5 text-[13px] leading-[1.7] text-paper sm:mt-[4.5rem]">
-            <p>
-              You saw it. A paper, a thread, a sentence in a lecture. You meant
-              to keep it. Weeks later you cannot put your hands on it.
-            </p>
-            <p>
-              One save. Later you ask in your own words. The answer comes from
-              what you actually kept, and it shows you the source.
-            </p>
-          </div>
-
-          <div className="space-y-14">
-            <Section title="You already saved it">
+          <div className="space-y-14 mt-14">
+            <Section title="The folder called later">
               <p>
-                Bookmarks. A notes app. A folder called &quot;later.&quot;
-                Saving was never the hard part. Finding it again was.
+                Bookmarks. A notes app. A folder named &quot;later,&quot; which
+                is where files go to wait for a more organized version of you.
+                That person does not arrive. The folder keeps growing.
               </p>
               <p>
-                The hunt starts as a feeling, not a filename. You remember a
-                claim or a chart. You do not remember the tab. You open
-                Downloads, try the wrong Cmd+F, check five places, and still do
-                not have it.
+                The hunt never starts with a filename. It starts with a feeling.
+                A claim. A chart. A sentence that felt expensive at the time.
+                You do not remember the tab. You check five places, use Cmd+F
+                like a superstition, and still do not have it.
               </p>
               <p>
-                Bookmark and notes apps make you file things before you can get
-                them back. If you did not file it, you cannot find it. Most of
-                what you save never gets filed.
+                The tools you already use make you file the thing before you are
+                allowed to want it back. You do not file it. You are on a bus.
+                You are in a lecture. You are saving because it felt like it
+                would matter, not because you had a taxonomy ready. Most of what
+                you save never gets filed. It just sits there, loyal and lost.
               </p>
             </Section>
 
-            <Section title="The clock">
+            <Section title="A fifth of the day">
               <p>
                 Knowledge workers spend about a fifth of the day searching and
-                gathering information (
+                gathering information: roughly 1.8 hours a day, 9.3 hours a week
+                (
                 <Cite href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy">
-                  McKinsey Global Institute, <em>The Social Economy</em>, 2012
+                  2012
                 </Cite>
-                ). Roughly 1.8 hours a day. About 9.3 hours a week.
-              </p>
-              <p>
-                McKinsey counted this inside companies: looking for information,
-                including what colleagues know. It is not a stopwatch on your
-                bookmarks. It is still the public number for how much of a
-                knowledge day goes to looking.
-              </p>
-            </Section>
-
-            <Section title="Finding it again">
-              <p>
-                A lot of that looking is going back for something you already
-                saw. A quote, a paper, a thread you know exists. Nobody has
-                measured how much of search is re-finding versus first-time
-                discovery.
-              </p>
-              <p>
-                Capra, Teevan, and others treat re-finding as its own problem.
-                If you remember a passage and not a URL, you are slower and more
-                likely to miss it than if you had a specific bookmark. This is
-                built for that case.
-              </p>
-              <p>
+                ). A workplace figure, not a stopwatch on your bookmarks, and a
+                lot of that looking is going back for something you already had.
+                <br />
+                <br />
+                The quote. The paper. The thread you can still hear. Remembering
+                a passage and not a URL makes you slower; you miss it, open the
+                wrong year, or recreate a slide because hunting was worse than
+                making it again. One office study finds about 2.8 hours a week
+                looking for or requesting information, and about 2.0 hours
+                recreating work that already exists (
                 <Cite href="https://www.apqc.org/blog/km-makes-knowledge-workers-more-productive-and-less-stressed-out">
-                  APQC
-                </Cite>{" "}
-                finds knowledge workers spend about 2.8 hours a week looking for
-                or requesting information, and about 2.0 hours recreating work
-                that already exists. That is an office study, not a personal
-                library. Same waste: time looking, then time making it again.
+                  study
+                </Cite>
+                ). Same joke: time looking, then time making it twice.
               </p>
             </Section>
 
-            <Section title="Attention residue">
+            <Section title="The leftover hunt">
               <p>
-                An unfinished hunt leaves attention residue: part of your
-                attention stays with the last task, so the original work runs
-                worse (Leroy, 2009). &quot;Where did I see that?&quot; is
-                usually several places. Each switch leaves residue. The hunt
-                does not have to last twenty minutes to cost you.
+                An unfinished hunt does not clock out when you close the tab.
+                Part of your attention stays with the last search, so the work
+                you sat down to do runs worse. &quot;Where did I see that?&quot;
+                is usually several places. Each switch leaves a residue. The
+                hunt does not have to last twenty minutes to cost you.
               </p>
               <p>
                 An unanswered search stays open in working memory. Twelve tabs
-                is not a search strategy. It is an unclosed task.
+                is not a strategy. It is an unclosed task, humming.
               </p>
               <p>
                 Parking &quot;I might need this later&quot; outside your head
-                can free working memory. Only if you trust you can get it back.
-                A graveyard of bookmarks does not count.
+                can free the room. Only if you trust you can get it back. A
+                graveyard of bookmarks does not count. You already know how that
+                story ends.
               </p>
               <p>
-                One action to keep it. Then ask later in your own words, with
-                sources. No filing. No tags.
+                What if keeping it was one action, the way you already try to
+                keep it, and finding it did not require the filing you never do.
+                Weeks later you ask in the leftover words. The blue line. The
+                lecture. That argument about the chart. What comes back is from
+                what you actually kept. The source comes with it.
               </p>
             </Section>
 
