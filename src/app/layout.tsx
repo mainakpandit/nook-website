@@ -1,66 +1,48 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
-import { Atmosphere } from "@/components/atmosphere";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
 const description =
-  "Knowledge workers spend about a fifth of the day looking for information, much of it something they already saw. Why bookmarks fail at retrieval, and why Nook exists.";
+  "You already save too much and cannot find it again. Capture once, ask later, get answers with sources.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://getnook.tech"),
   title: {
-    default: "Why Nook exists",
+    default: "Coming soon",
     template: "%s",
   },
   description,
   openGraph: {
-    title: "Why Nook exists",
+    title: "For people who consume more than they remember.",
     description:
-      "For people who consume more than they remember. Capture anything. Ask later. Get answers with sources.",
+      "Capture anything. Ask later. Get answers with sources. Coming soon.",
     type: "website",
     url: "/",
-    siteName: "Nook",
+    siteName: "getnook.tech",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Why Nook exists",
-    description: "For people who consume more than they remember.",
+    title: "For people who consume more than they remember.",
+    description: "Capture anything. Ask later. Get answers with sources.",
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${instrumentSerif.variable}`}
-    >
+    <html lang="en">
       <body className="antialiased">
         <span
           dangerouslySetInnerHTML={{
             __html: `<!--
-THESIS: One public page argues why Nook exists as a traditional landing — hero, specimen of the loop, cited argument, coming-soon close — not a teaser screen plus a separate essay, and not a waitlist or feature grid.
-OWN-WORLD: Warm paper field, Instrument serif display, Geist body, moss as quiet status, hairline rules, alcove icon, atmosphere wash with grain. No client runtime on the landing.
-STORY: You already save too much and cannot re-find it. Nook this, ask later, answers come back with sources. Claims stay cited; no Nook ROI. Product is coming soon.
-FIRST VIEWPORT: Wordmark left, Coming soon right. Full-width serif headline, one-sentence lead, then a static ask specimen with a cited source. Reading continues down; there is no conversion control.
-FORM: Traditional long-form landing inside the incumbent Nook paper world. User-pinned: keep-world, code-first, why-as-home. No direction seed.
+THESIS: One public page in a black studio one-pager — icon mark, Helvetica column, one photograph, cited essay, coming-soon close — not a waitlist, not a feature grid, not paper-and-serif.
+OWN-WORLD: True black, white Helvetica Neue, icon-only mark, rounded photographic plate, --- rules, block cursor. No grain, no atmosphere, no wordmark.
+STORY: You already save too much and cannot re-find it. Capture, ask later, answers come back with sources. Claims stay cited; no ROI. Product is coming soon.
+FIRST VIEWPORT: Icon top-left of a ~38rem column. Large Helvetica headline. Small loop line. Grassland figure photograph with rounded corners at column width. Essay follows on scroll.
+FORM: User-pinned reconstruction of the attached tinycomputer.co one-pager. Helvetica. Icon instead of studio name. Essay body kept. Code-led. No direction seed.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 -->`,
           }}
         />
-        <Atmosphere />
-        <div className="relative z-10">{children}</div>
+        {children}
       </body>
     </html>
   );

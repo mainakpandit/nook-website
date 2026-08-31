@@ -1,8 +1,13 @@
 export function SiteFooter() {
   return (
-    <footer className="relative z-10 px-6 pb-10 pt-20 md:px-10">
-      <p className="text-center text-[14px] text-ink-soft">
-        getnook.tech - Coming soon
+    <footer className="pt-4 pb-2">
+      <p className="mt-5 text-[13px] leading-6 text-paper">
+        <a
+          href="https://getnook.tech"
+          className="underline decoration-paper underline-offset-4"
+        >
+          getnook.tech
+        </a>
       </p>
     </footer>
   );

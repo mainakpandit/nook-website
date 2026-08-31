@@ -2,10 +2,11 @@ import Link from "next/link";
 
 export function SiteHeader() {
   return (
-    <header className="relative z-10 flex items-center justify-between px-6 pt-7 md:px-10 md:pt-9">
+    <header className="pt-8">
       <Link
         href="/"
-        className="flex min-h-11 items-center gap-2.5 text-[15px] tracking-tight text-ink"
+        aria-label="Home"
+        className="inline-flex min-h-11 min-w-11 items-center"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -13,9 +14,8 @@ export function SiteHeader() {
           alt=""
           width={28}
           height={28}
-          className="rounded-[7px] shadow-[0_1px_2px_rgba(55,53,47,0.08)]"
+          className="rounded-[5px]"
         />
-        <span className="font-medium">Nook</span>
       </Link>
     </header>
   );
