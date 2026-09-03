@@ -9,6 +9,7 @@ import {
   siteUrl,
 } from "@/lib/site";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const viewport: Viewport = {
   themeColor: "#000000",
@@ -146,6 +147,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
