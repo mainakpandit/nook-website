@@ -1,4 +1,5 @@
 import Image from "next/image";
+import heroGrassland from "../../public/images/hero-grassland.png";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
@@ -6,7 +7,7 @@ function Cite({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
       href={href}
-      className="underline decoration-paper underline-offset-4 transition-opacity hover:opacity-70"
+      className="underline decoration-paper underline-offset-4 transition-opacity duration-150 ease-out-strong hover:opacity-70"
     >
       {children}
     </a>
@@ -49,11 +50,10 @@ export default function Home() {
 
           <figure className="mt-[4.5rem] sm:mt-20">
             <Image
-              src="/images/hero-grassland.png"
+              src={heroGrassland}
               alt="A person standing in tall grass, seen from behind, looking toward a quiet horizon."
-              width={1536}
-              height={1024}
               priority
+              placeholder="blur"
               className="h-auto w-full rounded-[12px]"
             />
           </figure>
