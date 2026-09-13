@@ -1,35 +1,89 @@
 @import "tailwindcss";
 
+/* Palette from DESIGN.md. The only place hex values live. */
+:root {
+  --background: #f2f2f7;
+  --foreground: #1c1c1e;
+  --card: #ffffff;
+  --card-foreground: #1c1c1e;
+  --popover: #ffffff;
+  --popover-foreground: #1c1c1e;
+  --primary: #1d03a1;
+  --primary-foreground: #ffffff;
+  --primary-hover: #3520b8;
+  --primary-pressed: #16027e;
+  --secondary: #ffffff;
+  --secondary-foreground: #1d03a1;
+  --muted: #e8e8ed;
+  --muted-foreground: #8e8e93;
+  --accent: #edebff;
+  --accent-foreground: #1d03a1;
+  --brand-tint: #edebff;
+  --destructive: #ff3b30;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5ea;
+  --border-strong: #d1d1d6;
+  --input: #e5e5ea;
+  --ring: #1d03a1;
+  --foreground-tertiary: #aeaeb2;
+  color-scheme: light;
+}
+
 @theme inline {
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --color-void: #000000;
-  --color-paper: #f2f2f2;
-  --color-paper-soft: #b3b3b3;
-  --color-rule: #2a2a2a;
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --color-brand: #1d03a1;
+  --color-brand-foreground: #ffffff;
+  --color-brand-hover: #3520b8;
+  --color-brand-pressed: #16027e;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-brand-tint: var(--brand-tint);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-foreground-tertiary: var(--foreground-tertiary);
 }
 
 html {
-  background: var(--color-void);
-  color-scheme: dark;
+  background: var(--background);
 }
 
 body {
   min-height: 100dvh;
-  background: var(--color-void);
-  color: var(--color-paper);
+  background: var(--background);
+  color: var(--foreground);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
 ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
 :focus-visible {
-  outline: 1px solid #ffffff;
-  outline-offset: 3px;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 a:focus-visible {
@@ -39,7 +93,7 @@ a:focus-visible {
 input,
 textarea,
 [contenteditable] {
-  caret-color: #ffffff;
+  caret-color: var(--primary);
 }
 
 ::-webkit-scrollbar {
@@ -48,12 +102,12 @@ textarea,
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3a3a3a;
-  border: 2px solid #000000;
+  background: var(--border-strong);
+  border: 2px solid var(--background);
 }
 
 .block-cursor {

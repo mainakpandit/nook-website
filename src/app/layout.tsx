@@ -13,8 +13,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "dark",
+  themeColor: "#1D03A1",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: siteName,
     capable: true,
-    statusBarStyle: "black",
+    statusBarStyle: "default",
   },
 };
 

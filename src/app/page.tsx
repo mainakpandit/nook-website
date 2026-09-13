@@ -7,7 +7,7 @@ function Cite({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
       href={href}
-      className="underline decoration-paper underline-offset-4 transition-opacity duration-150 ease-out-strong hover:opacity-70"
+      className="underline decoration-primary underline-offset-4 transition-colors duration-150 ease-out-strong hover:text-primary-hover"
     >
       {children}
     </a>
@@ -23,10 +23,10 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="mb-5 text-[15px] font-medium leading-snug tracking-[-0.015em] text-paper">
+      <h2 className="mb-5 text-[15px] font-medium leading-snug tracking-[-0.015em] text-foreground">
         {title}
       </h2>
-      <div className="space-y-5 text-[13px] leading-[1.7] text-paper">
+      <div className="space-y-5 text-[13px] leading-[1.7] text-foreground">
         {children}
       </div>
     </section>
@@ -36,19 +36,26 @@ function Section({
 export default function Home() {
   return (
     <div className="min-h-dvh">
-      <div className="mx-auto w-full max-w-[42rem] px-6 pb-20">
-        <SiteHeader />
+      <SiteHeader />
 
-        <main>
-          <h1 className="mt-[5.5rem] text-[2.4rem] font-semibold leading-[1.08] tracking-[-0.03em] text-paper sm:mt-28 sm:text-[2.75rem]">
-            You already have it. Somewhere.
-          </h1>
-          <p className="mt-5 text-[13px] leading-6 text-paper-soft">
-            A paper. A thread. A sentence in a lecture. Then the little comedy
-            of looking.
-          </p>
+      <main>
+        <section
+          id="hero"
+          className="bg-brand pt-18 pb-[4.5rem] text-brand-foreground sm:pb-20"
+        >
+          <div className="mx-auto w-full max-w-[42rem] px-6">
+            <h1 className="mt-[5.5rem] text-[2.4rem] font-semibold leading-[1.08] tracking-[-0.03em] sm:mt-28 sm:text-[2.75rem]">
+              You already have it. Somewhere.
+            </h1>
+            <p className="mt-5 text-[13px] leading-6">
+              A paper. A thread. A sentence in a lecture. Then the little comedy
+              of looking.
+            </p>
+          </div>
+        </section>
 
-          <figure className="mt-[4.5rem] sm:mt-20">
+        <div className="mx-auto w-full max-w-[42rem] px-6 pb-20">
+          <figure className="mt-14">
             <Image
               src={heroGrassland}
               alt="A person standing in tall grass, seen from behind, looking toward a quiet horizon."
@@ -133,7 +140,7 @@ export default function Home() {
             </Section>
 
             <Section title="Sources">
-              <ul className="space-y-4 text-[13px] leading-6 text-paper-soft">
+              <ul className="space-y-4 text-[13px] leading-6 text-muted-foreground">
                 <li>
                   McKinsey Global Institute.{" "}
                   <em>
@@ -173,10 +180,10 @@ export default function Home() {
               </ul>
             </Section>
           </div>
-        </main>
 
-        <SiteFooter />
-      </div>
+          <SiteFooter />
+        </div>
+      </main>
     </div>
   );
 }

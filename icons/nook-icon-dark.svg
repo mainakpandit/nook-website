@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Nook app icon">
-  <defs><clipPath id="nd"><rect x="0" y="0" width="512" height="512" rx="128" ry="128"></rect></clipPath></defs>
-  <g clip-path="url(#nd)">
-    <rect x="0" y="0" width="512" height="512" fill="#37352F"></rect>
-    <path d="M104 240v90A76 76 0 0 0 180 406h152a76 76 0 0 0 76-76v-90" fill="none" stroke="#F7F7F5" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"></path>
-    <circle cx="256" cy="160" r="46" fill="#F7F7F5"></circle>
-  </g>
-</svg>

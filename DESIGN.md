@@ -1,129 +1,199 @@
----
-name: Nook
-description: Black studio one-pager. Icon mark, Helvetica, one photograph, cited essay, coming soon.
-colors:
-  void: "#000000"
-  paper: "#f2f2f2"
-  paper-soft: "#b3b3b3"
-  rule: "#2a2a2a"
-typography:
-  display:
-    fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif"
-    fontSize: "2.75rem"
-    fontWeight: 600
-    lineHeight: 1.08
-    letterSpacing: "-0.03em"
-  headline:
-    fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif"
-    fontSize: "15px"
-    fontWeight: 500
-    lineHeight: 1.3
-    letterSpacing: "-0.015em"
-  body:
-    fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif"
-    fontSize: "13px"
-    fontWeight: 400
-    lineHeight: 1.7
-    letterSpacing: "normal"
-  label:
-    fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif"
-    fontSize: "13px"
-    fontWeight: 400
-    lineHeight: 1.5
-    letterSpacing: "0.35em"
-rounded:
-  sm: "5px"
-  md: "12px"
-spacing:
-  sm: "20px"
-  md: "40px"
-  lg: "80px"
-  column: "42rem"
-components:
-  link:
-    backgroundColor: "transparent"
-    textColor: "{colors.paper}"
-    typography: "{typography.body}"
-    padding: "0"
-  mark:
-    backgroundColor: "transparent"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.sm}"
-    size: "22px"
-    width: "22px"
-    height: "22px"
+# Design.md
+
+**Scope:** Color palette only, for the Nook public landing page at `getnook.tech`.
+**Component library:** Watermelon UI (React, Tailwind, Radix). Components come from the library. This file supplies the palette they are themed with.
+**Not in this file:** typography, spacing, motion, copy, layout. Do not invent them from this document.
+
 ---
 
-# Design System: Nook
+## 0. Rules for the agent
 
-## Overview
+1. Use Watermelon UI components as shipped. Override **color only**.
+2. Never hardcode a hex in component markup. Every color comes from a token below.
+3. Tokens follow the standard semantic naming used by Tailwind and Radix component registries (`background`, `foreground`, `primary`, `muted`, `border`, `ring`, and so on). If Watermelon UI exposes different token names, map these values onto its names and keep the mapping in one theme file.
+4. Both light and dark values are mandatory. Every section must be checked in both.
+5. If a color is needed that is not in this file, stop and ask. Do not add a hue.
 
-**Creative North Star: "The studio sheet"**
+---
 
-A single black column, the kind a small software studio would publish as a one-page site: no chrome, no atmosphere, no wordmark. The alcove icon is the only brand. Helvetica is the only voice. One photograph carries color. Everything else is type, dashes, and a blinking block cursor.
+## 1. Brand anchor
 
-The visitor is here to understand why the product exists, then to learn it is not live. There is no waitlist and no conversion control. Density is high in the essay and empty in the first viewport.
+| Token | Value | Note |
+|---|---|---|
+| `brand` | `#1D03A1` | Constant in both appearances. This is a **fill**, never body text. |
+| `brand-foreground` | `#FFFFFF` | The only content color placed on `brand`. |
 
-**Key Characteristics:**
-- True black field, near-white Helvetica
-- Icon-only mark; never a text wordmark
-- One rounded photographic plate
-- `---` as the only section rule
-- Coming-soon close with a terminal cursor
+The logo is a white knockout mark with no background. It must always sit on a `#1D03A1` ground. Never place the logo on white, on a photo, or on a gradient.
 
-## Colors
+---
 
-Restrained: black ground, two values of off-white, one dim rule.
+## 2. Semantic tokens
 
-### Primary
-- **Paper** (#f2f2f2): Body, headlines, links, cursor.
+### Light appearance
 
-### Neutral
-- **Void** (#000000): Page field.
-- **Paper soft** (#b3b3b3): Subhead and sources.
-- **Rule** (#2a2a2a): Unused as a drawn line; the live divider is the `---` glyph in paper-soft.
+| Token | Hex |
+|---|---|
+| `background` | `#F2F2F7` |
+| `foreground` | `#1C1C1E` |
+| `card` | `#FFFFFF` |
+| `card-foreground` | `#1C1C1E` |
+| `popover` | `#FFFFFF` |
+| `popover-foreground` | `#1C1C1E` |
+| `primary` | `#1D03A1` |
+| `primary-foreground` | `#FFFFFF` |
+| `secondary` | `#FFFFFF` |
+| `secondary-foreground` | `#1D03A1` |
+| `muted` | `#E8E8ED` |
+| `muted-foreground` | `#8E8E93` |
+| `accent` | `#EDEBFF` |
+| `accent-foreground` | `#1D03A1` |
+| `destructive` | `#FF3B30` |
+| `destructive-foreground` | `#FFFFFF` |
+| `border` | `#E5E5EA` |
+| `input` | `#E5E5EA` |
+| `ring` | `#1D03A1` |
 
-## Typography
+### Dark appearance
 
-Helvetica Neue, then Helvetica, then Arial. No serif. No mono costume.
+| Token | Hex |
+|---|---|
+| `background` | `#0B0B0F` |
+| `foreground` | `#FFFFFF` |
+| `card` | `#1C1C1E` |
+| `card-foreground` | `#FFFFFF` |
+| `popover` | `#1C1C1E` |
+| `popover-foreground` | `#FFFFFF` |
+| `primary` | `#5E5CE6` |
+| `primary-foreground` | `#FFFFFF` |
+| `secondary` | `#2C2C2E` |
+| `secondary-foreground` | `#FFFFFF` |
+| `muted` | `#2C2C2E` |
+| `muted-foreground` | `#A1A1A6` |
+| `accent` | `#1A1140` |
+| `accent-foreground` | `#B9B5FF` |
+| `destructive` | `#FF453A` |
+| `destructive-foreground` | `#FFFFFF` |
+| `border` | `#2C2C2E` |
+| `input` | `#2C2C2E` |
+| `ring` | `#5E5CE6` |
 
-- **Display:** 2.4–2.75rem, semibold, tracking −0.03em. The home headline only.
-- **Headline:** 15px medium section titles.
-- **Body:** 13px / 1.7 for the essay.
-- **Label:** 13px tracked dashes for `---`.
+**Critical substitution:** `primary` is `#1D03A1` in light and `#5E5CE6` in dark. Indigo on a near-black page sits at roughly 1.5:1 against its background and the button loses its edge. `brand` stays `#1D03A1` in both appearances, because it is only ever used as a large filled ground carrying white content.
 
-Links are the same size as body, underlined, paper color, opacity 0.7 on hover.
+---
 
-## Layout
+## 3. Interaction tokens
 
-One centered column, `max-width: 42rem`, `padding-inline: 1.5rem`. Header icon sits at the start of that column, not the viewport edge. First viewport stacks mark → large gap → headline → small loop line → large gap → photograph. Essay sections stack with ~3.5rem between titles. Footer after a `---` rule.
+| Token | Light | Dark |
+|---|---|---|
+| `primary-hover` | `#3520B8` | `#7A78EC` |
+| `primary-pressed` | `#16027E` | `#4D4BD4` |
+| `brand-tint` | `#EDEBFF` | `#1A1140` |
+| `border-strong` | `#D1D1D6` | `#3A3A3C` |
+| `foreground-tertiary` | `#AEAEB2` | `#6E6E73` |
 
-## Elevation & Depth
+Hover and pressed states shift the hex. Do not produce them by lowering opacity on indigo. Opacity over the gray page produces a muddy violet.
 
-Flat. No drop shadows. The photograph is the only object; its rounded rectangle is enough.
+---
 
-## Shapes
+## 4. Status colors
 
-- Mark: 22px, 5px corner (the icon asset already has a rounded square).
-- Photograph: 12px corner, full column width, intrinsic 3:2.
+Used on the landing page only where the product is being demonstrated, for example a mock nook card inside a hero or feature screenshot. Not for marketing emphasis.
 
-## Components
+| State | Dot or fill | Label on light | Label on dark |
+|---|---|---|---|
+| `status-ready` | `#34C759` | `#248A3D` | `#30D158` |
+| `status-processing` | `#FF9F0A` | `#8A5300` | `#FFD60A` |
+| `status-failed` | `#FF3B30` | `#D70015` | `#FF453A` |
 
-- **Mark:** Home link, icon only, `aria-label="Home"`.
-- **Cite:** Underlined text link, no button treatment.
-- **Rule:** Literal `---` in tracked paper-soft.
-- **Cursor:** 0.52em × 0.92em paper block, 1.12s step blink; static when reduced motion is requested.
+The vivid hex is for dots, pills, and indicators. The label hex is for any text rendered in that color, because the vivid green and amber do not reach readable contrast as text on white.
 
-## Do's and Don'ts
+Always pair the color with a text label or an icon. Color alone never carries the meaning.
 
-**Do**
-- Keep the icon as the only brand lockup.
-- Keep coming soon as the close; no email capture.
-- Keep claims cited; no product ROI number.
-- Set Helvetica as the stack even on machines that fall back to Arial.
+---
 
-**Don't**
-- Write the product name as a wordmark in the header or footer.
-- Restore paper, serif, moss, grain, or corner frame marks.
-- Invent a waitlist, changelog, or journal to mimic the reference studio's copy.
-- Use monospace to signal “technical.”
+## 5. Token object
+
+```json
+{
+  "brand": { "DEFAULT": "#1D03A1", "foreground": "#FFFFFF", "hover": "#3520B8", "pressed": "#16027E" },
+  "light": {
+    "background": "#F2F2F7",
+    "foreground": "#1C1C1E",
+    "card": "#FFFFFF",
+    "cardForeground": "#1C1C1E",
+    "primary": "#1D03A1",
+    "primaryForeground": "#FFFFFF",
+    "secondary": "#FFFFFF",
+    "secondaryForeground": "#1D03A1",
+    "muted": "#E8E8ED",
+    "mutedForeground": "#8E8E93",
+    "accent": "#EDEBFF",
+    "accentForeground": "#1D03A1",
+    "destructive": "#FF3B30",
+    "border": "#E5E5EA",
+    "ring": "#1D03A1"
+  },
+  "dark": {
+    "background": "#0B0B0F",
+    "foreground": "#FFFFFF",
+    "card": "#1C1C1E",
+    "cardForeground": "#FFFFFF",
+    "primary": "#5E5CE6",
+    "primaryForeground": "#FFFFFF",
+    "secondary": "#2C2C2E",
+    "secondaryForeground": "#FFFFFF",
+    "muted": "#2C2C2E",
+    "mutedForeground": "#A1A1A6",
+    "accent": "#1A1140",
+    "accentForeground": "#B9B5FF",
+    "destructive": "#FF453A",
+    "border": "#2C2C2E",
+    "ring": "#5E5CE6"
+  },
+  "status": {
+    "ready": { "fill": "#34C759", "label": "#248A3D", "labelDark": "#30D158" },
+    "processing": { "fill": "#FF9F0A", "label": "#8A5300", "labelDark": "#FFD60A" },
+    "failed": { "fill": "#FF3B30", "label": "#D70015", "labelDark": "#FF453A" }
+  }
+}
+```
+
+---
+
+## 6. Landing page component mapping
+
+| Component | Light | Dark |
+|---|---|---|
+| Page shell | `background`, `foreground` | `background`, `foreground` |
+| Nav bar | Transparent over hero, then `card` with a `border` bottom hairline on scroll. Logo mark in `foreground`, not indigo. | `card` with `border` hairline |
+| Hero band | Full-bleed `brand` ground, white logo mark, `brand-foreground` headline and subhead | Identical. The hero is the one block that does not change between appearances. |
+| Hero primary CTA | `card` fill with `brand` text, sitting on the indigo ground | Identical |
+| Hero secondary CTA | Transparent with a `brand-foreground` hairline border at reduced opacity, white label | Identical |
+| Section outside hero | `background` | `background` |
+| Feature card | `card` fill, `border` hairline, `foreground` title, `muted-foreground` body | `card` fill, `border` hairline |
+| Feature icon | `brand-tint` rounded tile with a `primary` glyph | `accent` tile with `accent-foreground` glyph |
+| Capture surface row (extension, mobile, WhatsApp, MCP) | `muted` chips, `muted-foreground` labels, `primary` on the active or hovered one | `muted` chips, `primary` on active |
+| Product screenshot frame | `card` on `background`, `border` hairline, no shadow | `card` on `background` |
+| Mock nook card inside a screenshot | `card`, `border`, status dot from section 4 | Same |
+| Pricing card, standard | `card` fill, `border` hairline | `card`, `border` |
+| Pricing card, recommended | `card` fill, `primary` border, `brand-tint` badge with `accent-foreground` label | `card` fill, `primary` border, `accent` badge |
+| Pricing CTA | `primary` fill, `primary-foreground` label | `primary` fill, `primary-foreground` label |
+| Trial banner or strip | `brand-tint` background, `accent-foreground` text | `accent` background, `accent-foreground` text |
+| FAQ accordion | `card` panels, `border` dividers, `muted-foreground` answers | Same |
+| Final CTA band | Full-bleed `brand`, same treatment as hero | Identical |
+| Footer | `background`, `muted-foreground` links, `border` top hairline | Same |
+| Focus state, all interactive elements | 2px `ring`, offset 2px | 2px `ring` |
+
+---
+
+## 7. Constraints
+
+- **At most two indigo grounds on the whole page**: the hero and the final CTA band. If a third appears, remove one.
+- **One filled `primary` button per viewport.** Everything else is secondary or a text link.
+- **No gradients anywhere**, including on the brand color and behind the hero. The logo is a flat knockout and the system is flat.
+- **No shadows on cards.** Separation comes from the `border` hairline against `background`.
+- **No system blue.** Do not introduce `#0A84FF` or any second blue. Links use `primary`.
+- **No additional accent hue.** No teal, no amber outside the status layer, no green outside the status layer.
+- **Neutrals stay neutral.** Do not tint the grays toward indigo. The single saturated color only carries weight because everything around it is gray.
+- **Expired or empty states are never red.** Red is reserved for `destructive` and `status-failed`.
+- Contrast reference: `#1D03A1` on white is about 13:1. `#5E5CE6` on `#0B0B0F` is about 3.9:1, which clears the 3:1 bar for UI elements and large text but not for small body copy, so dark-mode paragraphs stay `foreground` or `muted-foreground`.

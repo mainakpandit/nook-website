@@ -48,7 +48,7 @@ Confirmed site IA (2026-08-31): a single traditional landing page at `/` whose c
 - Voice: calm, precise, slightly literary. Short paragraphs. “You” is the reader. Never “users.” No exclamation marks. No productivity-hustle.
 - Cite in the sentence; sources listed at the bottom.
 - No charts, vendor logos, or “we save you 30 minutes.”
-- Wordmark and icon assets live under `public/icons/` and `icons/`.
+- Site icons live in `src/app/` and `public/icons/`; the full brand kit (lockups, social, app-store) lives in `nook-assets/`.
 - Domain: getnook.tech.
 
 ## Evidence on Hand
